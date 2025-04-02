@@ -196,10 +196,23 @@ public class Main {
           }
 
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+         for (int j=0; j< Forms.size();j++){
+              if (Forms.get(j) instanceof CanRun){
+                 // CanRun canRun = (CanRun) Forms.get(j);
+                  //CanRun.run();
+                  ((CanRun) Forms.get(j)).run();
+              } else if (Forms.get(j) instanceof  CanSwim) {
+                  ((CanSwim) Forms.get(j)).swim();
+              } else if (Forms.get(j) instanceof CanFly) {
+                  ((CanFly) Forms.get(j)).fly();
+              } else if (Forms.get(j) instanceof HasThorns) {
+                  ((HasThorns) Forms.get(j)).poke();
+              } else if (Forms.get(j) instanceof ProducesFruit) {
+                  ((ProducesFruit) Forms.get(j)).produceFruit();
+              }
+              else {
+                  System.out.println("This object " + Forms.get(j)+ " does not inherit anything.");
+              }
+          }
     }
 }
